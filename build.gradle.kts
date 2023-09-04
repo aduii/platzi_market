@@ -40,6 +40,10 @@ tasks.jar {
     archiveFileName.set("marketv2-1.0.jar")
 }
 
+tasks.named("bootDistZip") {
+    dependsOn("jar")
+}
+
 application {
     mainClass.set("com.platzi.marketv2.Marketv2Application")
 }
