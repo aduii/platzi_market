@@ -25,27 +25,20 @@ jobs:
     - name: Establecer variable de entorno DB_PASSWORD
       run: |
         echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> $GITHUB_ENV
-    - name: Dar permisos de ejecución al script gradlew
-      run: |
-        chmod +x gradlew
-        git update-index --chmod=+x gradlew
-        ./gradlew clean
-        ./gradlew build
     - name: Set up JDK 11
       uses: actions/setup-java@v3
       with:
         java-version: '11'
-        distribution: 'temurin'
     - name: Build with Gradle
-      uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
-      with:
-        arguments: build
-    - name: Build & push Docker image
-      uses: mr-smithers-excellent/docker-build-push@v6
-      with:
-        image: alexjuep/platzi-marketv2
-        tags: latest
-        registry: docker.io
-        dockerfile: Dockerfile
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+      run: ./gradlew clean build
+    - name: Set up Docker
+      uses: docker/setup-qemu-action@v1
+    - name: Configure Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Build Docker image
+      run: |
+        docker build -t alexjuep/platzi-marketv2:latest -f Dockerfile .
+    - name: Log in to Docker Hub
+      run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+    - name: Push Docker image
+      run: docker push alexjuep/platzi-marketv2:latest
