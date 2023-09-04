@@ -1,29 +1,35 @@
 plugins {
-	java
-	id("org.springframework.boot") version "2.7.14"
-	id("io.spring.dependency-management") version "1.0.15.RELEASE"
+    java
+    id("org.springframework.boot") version "2.7.14"
+    id("io.spring.dependency-management") version "1.0.15.RELEASE"
 }
 
 group = "com.platzi"
-version = "0.0.1-SNAPSHOT"
+version = "1.0"
 
 java {
-	sourceCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_11
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation("mysql:mysql-connector-java:8.0.28")
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("mysql:mysql-connector-java:8.0.28")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("io.springfox:springfox-swagger2:3.0.0")
+    implementation("io.springfox:springfox-swagger-ui:2.9.2")
 
 
-	implementation("org.springframework.boot:spring-boot-starter-web")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
+    implementation("org.mapstruct:mapstruct:1.5.5.Final")
+    annotationProcessor("org.mapstruct:mapstruct-processor:1.5.5.Final")
+
+
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 tasks.withType<Test> {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
