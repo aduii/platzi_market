@@ -39,3 +39,6 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
+springBoot {
+    mainClass = "com.platzi.marketv2.Marketv2Application"
+}
