@@ -44,6 +44,6 @@ jobs:
         image: alexjuep/platzi-marketv2
         tags: latest
         registry: docker.io
-        dockerfile: Dockerfile.ci
+        dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
