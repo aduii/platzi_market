@@ -39,6 +39,8 @@ jobs:
       uses: gradle/gradle-build-action@v2.8.0
       with:
         gradle-version: 8.2.1
+    - name: Execute Gradle build
+      run: ./gradlew build
     - name: Build & push Docker image
       uses: mr-smithers-excellent/docker-build-push@v6
       with:
