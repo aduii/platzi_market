@@ -32,8 +32,8 @@ jobs:
         distribution: temurin
     - name: Make gradlew executable
       run: |
-        ./gradlew clean
         chmod +x ./gradlew
+        ./gradlew clean
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
       with:
