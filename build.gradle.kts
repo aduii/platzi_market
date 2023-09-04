@@ -16,6 +16,10 @@ repositories {
     mavenCentral()
 }
 
+springBoot {
+    mainClass.set("com.platzi.marketv2.Marketv2Application")
+}
+
 dependencies {
     implementation("mysql:mysql-connector-java:8.0.28")
     implementation("org.springframework.boot:spring-boot-starter")
