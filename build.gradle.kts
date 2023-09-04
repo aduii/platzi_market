@@ -13,10 +13,6 @@ java {
     sourceCompatibility = JavaVersion.VERSION_11
 }
 
-application {
-    mainClass.set("com.platzi.marketv2.Marketv2Application")
-}
-
 repositories {
     mavenCentral()
 }
@@ -42,4 +38,8 @@ tasks.withType<Test> {
 }
 tasks.jar {
     archiveFileName.set("marketv2-1.0.jar")
+}
+
+application {
+    mainClass.set("com.platzi.marketv2.Marketv2Application")
 }
