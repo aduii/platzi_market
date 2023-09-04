@@ -1,4 +1,5 @@
 plugins {
+    application
     java
     id("org.springframework.boot") version "2.7.14"
     id("io.spring.dependency-management") version "1.0.15.RELEASE"
@@ -12,12 +13,12 @@ java {
     sourceCompatibility = JavaVersion.VERSION_11
 }
 
-repositories {
-    mavenCentral()
+application {
+    mainClass.set("com.platzi.marketv2.Marketv2Application")
 }
 
-springBoot {
-    mainClass.set("com.platzi.marketv2.Marketv2Application")
+repositories {
+    mavenCentral()
 }
 
 dependencies {
