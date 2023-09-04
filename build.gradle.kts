@@ -10,9 +10,6 @@ version = "1.0"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_11
-    tasks.jar {
-        archiveFileName.set("marketv2-1.0.jar")
-    }
 }
 
 repositories {
@@ -37,6 +34,10 @@ dependencies {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+tasks.bootJar {
+    archiveFileName.set("marketv2-1.0.jar")
 }
 
 springBoot {
