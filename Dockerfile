@@ -1,7 +1,5 @@
 FROM openjdk:11-jre-slim
 
-COPY platzi_marketv2.jar /app/platzi_marketv2.jar
+ADD target/marketv2-1.0.jar marketv2-1.0.jar
 
-WORKDIR /app
-
-CMD ["java", "-jar", "platzi_marketv2.jar"]
+CMD ["java", "-jar", "marketv2-1.0.jar"]

@@ -35,5 +35,5 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 tasks.jar {
-    archiveFileName.set("platzi_marketv2.jar")
+    archiveFileName.set("marketv2-1.0.jar")
 }
