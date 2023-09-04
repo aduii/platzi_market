@@ -37,4 +37,7 @@ tasks.withType<Test> {
 }
 tasks.jar {
     archiveFileName.set("marketv2-1.0.jar")
+    manifest {
+        attributes["Main-Class"] = "com.platzi.marketv2.Marketv2Application"
+    }
 }
